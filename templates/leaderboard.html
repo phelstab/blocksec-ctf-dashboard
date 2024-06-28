@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        .leaderboard-table th, .leaderboard-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        .leaderboard-table th {
+            background-color: #f2f2f2;
+        }
+        .leaderboard-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .leaderboard-table tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <table class="leaderboard-table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Solved Challenges</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user, data in users %}
+                <tr>
+                    <td>{{ user }}</td>
+                    <td>{{ data['score'] }}</td>
+                    <td>
+                        {% for challenge in data['solved_challenges'] %}
+                            {% if challenge %}
+                                {{ challenge }}<br>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}">Back to Challenges</a>
+</body>
+</html>
