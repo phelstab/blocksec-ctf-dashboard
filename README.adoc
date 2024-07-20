@@ -1,0 +1,29 @@
+= Very minimalistic CTF Panel for UUlm Practical Cybersecurity Lab.
+
+== Introduction
+
+image::./images/login.png[Pseudo Login]
+
+image::./images/dashboard.png[Leaderboard]
+
+image::./images/leaderboard.png[Leaderboard]
+
+== Installation
+
+[source,bash]
+----
+python -m venv venv
+pip install -r requirements.txt
+----
+
+== Usage
+
+[source,python]
+----
+python app.py
+----
+
+
+== License
+MIT
+Made by phelstab & dstucke.
